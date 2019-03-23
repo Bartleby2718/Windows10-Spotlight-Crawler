@@ -1,10 +1,11 @@
 import getpass
-import os
-from shutil import copyfile
-import platform
-import sys
-from PIL import Image
 import json
+import os
+import platform
+import shutil
+import sys
+
+import PIL.Image
 
 # TODO IDEA: Initial setup to set export directories and choose correct username, and automatically run every week or so
 # external library needed? Pillow (PIL)
@@ -79,7 +80,7 @@ for file in name_list:
         src = os.path.join(src_common, file)
         src_ext = os.path.join(src_common, new_image)
         dst = os.path.join(dst_common, new_image)
-        im = Image.open(src)
+        im = PIL.Image.open(src)
         width, height = im.size
 
         # filter out icons
@@ -99,7 +100,7 @@ for file in name_list:
         if not os.path.exists(dst_common):
             os.makedirs(dst_common)
 
-        copyfile(src, dst)
+        shutil.copyfile(src, dst)
 
 # Open the directory where the files are copied, and terminate the program
 path = os.path.realpath(dst_common)
