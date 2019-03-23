@@ -1,4 +1,4 @@
 {
-  "silent": 1,
-  "orientation":2
+  "silent": true,
+  "orientation": "2"
 }
